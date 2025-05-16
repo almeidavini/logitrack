@@ -1,37 +1,38 @@
-# Unset - Sistema de Rastreamento de Pacotes
+# LogiTrack API
 
----
+## Visão Geral
 
-## Sumário
+LogiTrack API é uma aplicação backend desenvolvida utilizando Java 21, Spring Boot 3.4 e WebFlux para fornecer funcionalidades de rastreamento e gerenciamento de logística. A API utiliza um banco de dados MySQL para persistência dos dados e pode ser executada via Docker Compose.
 
-- [Descrição Geral](#descrição-geral)
-- [Instruções para Execução Local](#instruções-para-execução-local)
-- [Endpoints Principais](#endpoints-principais)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Métricas e Logs](#métricas-e-logs)
-- [Possíveis Melhorias Futuras](#possíveis-melhorias-futuras)
-- [Contato](#contato)
+## Tecnologias Utilizadas
 
----
+* **Java:** 21
+* **Spring Boot:** 3.4
+* **WebFlux:** Para programação reativa e não-bloqueante
+* **MySQL:** Banco de dados relacional
+* **Docker:** Para conteinerização da aplicação
+* **Docker Compose:** Para orquestração dos serviços Docker
 
-## Descrição Geral
+## Pré-requisitos
 
-Aplicação desenvolvida em *Spring Boot 3.4* com *Java 21, **WebFlux, **R2DBC* e *MySQL* para gerenciamento de rastreamento de pacotes em logística de alta escala. Focada em performance, escalabilidade, resiliência e processamento assíncrono de eventos.
+Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
----
+* Java Development Kit (JDK) 21 ou superior
+* Maven
+* Docker
+* Docker Compose (se desejar executar com Docker Compose)
+* MySQL Server (opcional, se não usar o Docker Compose)
 
-## Instruções para Execução Local
+## Execução com Docker Compose
 
-### Pré-requisitos
+Para executar a aplicação utilizando Docker Compose (configurado em `app/local`):
 
-- Java 21
-- Docker e Docker Compose
-- Maven ou Gradle
-- Git
-
-### Execução local
-
-bash
-docker-compose up -d 
-
----
+1.  Navegue até o diretório `app/local`:
+    ```bash
+    cd app/local
+    ```
+2.  Execute os serviços definidos no `docker-compose.yml`:
+    ```bash
+    docker-compose up -d --build
+    ```
+    A API estará disponível em `http://localhost:8080`. O banco de dados MySQL estará acessível na porta padrão (configurada no `docker-compose.yml`).
