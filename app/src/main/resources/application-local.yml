@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: logitrack
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/logitrackdb?pool=true
+    username: root
+    password: root
+    pool:
+      enabled: true
+      max-size: 20
+      initial-size: 10
+      max-idle-time: 30m
+
+external-services:
+  holiday:
+    url: https://date.nager.at/api/v3/
+  dog:
+    url: https://dogapi.dog/api/v2/
+
+logging:
+  level:
+    org.springframework.r2dbc.core: INFO
+    io.r2dbc.spi: INFO

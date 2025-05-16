@@ -1,0 +1,64 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files produced by packaging tools
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Maven files
+target/
+pom.xml.tag
+pom.xml.backup
+pom.xml.versionsBackup
+pom.xml.releaseBackup
+pom.xml.scmBackup
+*.iml.imlc
+
+# Gradle files (caso tenha algum vestígio)
+.gradle/
+build/
+settings.gradle.kts.kts
+settings.gradle.kts
+settings.gradle
+build.gradle.kts
+build.gradle
+*.lockfile
+*.log
+
+# NetBeans (caso tenha algum vestígio)
+nbproject/
+build/
+
+# Eclipse (caso tenha algum vestígio)
+.settings/
+.classpath
+.project
+
+# OS Specific files (e.g. macOS .DS_Store)
+.DS_Store
+Thumbs.db
+
+# Java Virtual Machine crash logs
+hs_err_pid*
+
+# Test output
+test-output/
+
+# Arquivos temporários do sistema
+~$*
+
+# Docker
+docker-compose.override.yml
+docker-compose.yml.backup
+.dockerenv
