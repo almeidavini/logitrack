@@ -15,22 +15,6 @@ services:
     networks:
       - logitrack-net
 
-  localstack:
-    image: !encontrar
-    container_name: localstack
-    ports:
-      - "4566:4566"
-    environment:
-      - SERVICES=dynamodb
-      - AWS_DEFAULT_REGION=sa-east-1
-      - DATA_DIR=/tmp/localstack/data
-      - PORT_WEB_UI=9000
-      - LAMBDA_EXECUTOR=local
-      - START_WEB=1
-      - AWS_ACCESS_KEY_ID=admin
-      - AWS_SECRET_ACCESS_KEY=admin
-      - EDGE_PORT=4566
-
   app:
     build: ..
     container_name: logitrack-api
