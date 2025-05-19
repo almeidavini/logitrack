@@ -14,7 +14,6 @@ public class AddressMapper {
 
     public Mono<Address> map(RegisterUserRequest request, User user) {
         return Mono.just(Address.builder()
-                .id(UUID.randomUUID().toString())
                 .userId(user.id())
                 .street(request.address().street())
                 .number(request.address().number())
@@ -27,7 +26,6 @@ public class AddressMapper {
 
     public Mono<Address> map(AddressEntity address) {
         return Mono.just(Address.builder()
-                .id(UUID.randomUUID().toString())
                 .userId(address.userId())
                 .street(address.street())
                 .number(address.number())

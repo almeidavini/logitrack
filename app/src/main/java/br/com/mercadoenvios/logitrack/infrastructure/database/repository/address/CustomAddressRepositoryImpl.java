@@ -18,7 +18,6 @@ public class CustomAddressRepositoryImpl implements CustomAddressRepository {
     public Mono<AddressEntity> findAddressByIdUser(String userId) {
         var query = """
                 SELECT
-                    id,
                     user_id,
                     street,
                     number,

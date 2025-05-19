@@ -1,6 +1,6 @@
 package br.com.mercadoenvios.logitrack.domain.usecase.validations.user;
 
-import br.com.mercadoenvios.logitrack.domain.exception.UserAlreadyRegisteredException;
+import br.com.mercadoenvios.logitrack.domain.exception.validation.UserAlreadyRegisteredException;
 import br.com.mercadoenvios.logitrack.domain.model.User;
 import br.com.mercadoenvios.logitrack.infrastructure.database.mapper.UserEntityMapper;
 import br.com.mercadoenvios.logitrack.infrastructure.database.repository.user.UserRepository;

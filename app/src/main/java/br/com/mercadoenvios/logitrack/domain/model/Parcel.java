@@ -1,5 +1,6 @@
 package br.com.mercadoenvios.logitrack.domain.model;
 
+import br.com.mercadoenvios.logitrack.infrastructure.config.CopyableRecord;
 import lombok.Builder;
 
 import java.time.LocalDate;
@@ -18,11 +19,19 @@ public record Parcel(
         LocalDateTime createdAt,
         LocalDateTime updatedAt,
         LocalDateTime deliveredAt
-) {
+) implements CopyableRecord<Parcel> {
     public enum Status {
         CREATED,
         IN_TRANSIT,
         DELIVERED,
-        CANCELLED
+        CANCELLED;
+
+        public boolean canTransitionTo(Status nextStatus) {
+            return switch (this) {
+                case CREATED -> nextStatus == IN_TRANSIT;
+                case IN_TRANSIT -> nextStatus == DELIVERED;
+                case DELIVERED, CANCELLED -> false;
+            };
+        }
     }
 }

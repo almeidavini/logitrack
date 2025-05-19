@@ -9,8 +9,12 @@ public record User(
         String id,
         String name,
         String email,
-        String status,
+        Status status,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
 ) {
+    public enum Status {
+        ACTIVE,
+        INACTIVE
+    }
 }

@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 
 @Builder
 public record Address(
-        String id,
         String userId,
         String street,
         String number,

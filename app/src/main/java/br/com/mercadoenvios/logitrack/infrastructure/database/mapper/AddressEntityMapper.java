@@ -15,7 +15,6 @@ import java.util.UUID;
 public class AddressEntityMapper {
     public Mono<AddressEntity> map(Address address, User user) {
         return Mono.just(AddressEntity.builder()
-                .id(UUID.randomUUID().toString())
                 .userId(user.id())
                 .street(address.street())
                 .number(address.number())
@@ -28,7 +27,6 @@ public class AddressEntityMapper {
 
     public AddressEntity map(Row row, RowMetadata metadata) {
         return AddressEntity.builder()
-                .id(row.get("id", String.class))
                 .userId(row.get("user_id", String.class))
                 .street(row.get("street", String.class))
                 .number(row.get("number", String.class))

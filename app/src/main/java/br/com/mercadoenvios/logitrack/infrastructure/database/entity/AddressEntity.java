@@ -9,9 +9,6 @@ import java.time.LocalDateTime;
 @Builder
 @Table("addresses")
 public record AddressEntity(
-        @Column("id")
-        String id,
-
         @Column("user_id")
         String userId,
 

@@ -1,7 +1,9 @@
 package br.com.mercadoenvios.logitrack.application.controller;
 
-import br.com.mercadoenvios.logitrack.domain.model.Parcel;
-import br.com.mercadoenvios.logitrack.domain.service.ParcelService;
+import br.com.mercadoenvios.logitrack.application.dto.parcel.*;
+import br.com.mercadoenvios.logitrack.domain.exception.InvalidEventsHeaderException;
+import br.com.mercadoenvios.logitrack.domain.facade.ParcelFacade;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -11,30 +13,29 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class ParcelController {
 
-    private final ParcelService service;
+    private final ParcelFacade service;
 
     @PostMapping
-    public Mono<Boolean> createParcel(@RequestBody Parcel parcel) {
-        return Mono.empty();
+    public Mono<CreateParcelResponse> createParcel(@RequestBody @Valid CreateParcelRequest parcel) {
+        return service.createParcel(parcel);
     }
 
-    @PatchMapping
-    public Mono<Parcel> updateParcel() {
-        return Mono.empty();
+    @PatchMapping("/{id}")
+    public Mono<UpdateStatusParcelResponse> updateParcel(@PathVariable String id, @RequestBody @Valid UpdateStatusParcelRequest request) {
+        return service.updateStatusParcel(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public Mono<Void> cancelShipping(@PathVariable String id) {
-        return Mono.empty();
+    public Mono<CancelledParcelResponse> cancelShipping(@PathVariable String id) {
+        return service.cancelledParcel(id);
     }
 
     @GetMapping("/{id}")
-    public Mono<Parcel> getParcel(@PathVariable String id) {
-        return Mono.empty();
-    }
+    public Mono<FindParcelResponse> getParcel(@PathVariable String id, @RequestHeader(value = "events", required = false, defaultValue = "false") String events) {
+        if (!events.equalsIgnoreCase("true") && !events.equalsIgnoreCase("false")) {
+            throw new InvalidEventsHeaderException(events);
+        }
 
-    @GetMapping()
-    public Mono<Parcel> getParcels(@RequestParam String senderId, @RequestParam Long recipientId) {
-        return Mono.empty();
+        return service.findParcel(id, Boolean.parseBoolean(events));
     }
 }

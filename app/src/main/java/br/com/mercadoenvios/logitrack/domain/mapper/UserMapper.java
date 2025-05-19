@@ -24,7 +24,7 @@ public class UserMapper {
                 .id(userEntity.id())
                 .name(userEntity.name())
                 .email(userEntity.email())
-                .status(userEntity.status())
+                .status(User.Status.valueOf(userEntity.status()))
                 .createdAt(userEntity.createdAt())
                 .updatedAt(userEntity.updatedAt())
                 .build());

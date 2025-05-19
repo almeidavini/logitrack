@@ -1,12 +1,15 @@
 package br.com.mercadoenvios.logitrack.infrastructure.integration.holiday;
 
+import br.com.mercadoenvios.logitrack.domain.exception.HolidayIntegrationException;
 import br.com.mercadoenvios.logitrack.infrastructure.integration.holiday.dto.HolidayResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Repository
 public class HolidayRepository {
     private final WebClient client;
 
@@ -24,6 +27,7 @@ public class HolidayRepository {
     }
 
     private Mono<? extends Throwable> handle(ClientResponse response) {
-        return Mono.error(RuntimeException::new);
+        return response.bodyToMono(String.class)
+                .flatMap(body -> Mono.error(new HolidayIntegrationException("Holiday API error: " + response.statusCode() + " - " + body)));
     }
 }

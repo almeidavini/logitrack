@@ -7,6 +7,6 @@ public class DatabaseIntegrationException extends RuntimeException {
     }
 
     public DatabaseIntegrationException(Throwable cause) {
-        super("Error in database integration:", cause);
+        super("Error in database integration: " + cause.getMessage(), cause);
     }
 }
