@@ -2,31 +2,6 @@
   LogiTrack - Api
 </h1>
 
-<p align="center">
-  <a href="#description">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#requirements">Pré-requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#usage">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
-<br />
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=license&message=MIT" alt="License">
-  <img src="https://img.shields.io/github/repo-size/Lissone/point-control-api" alt="Repo size" />
-  <img src="https://img.shields.io/github/languages/top/Lissone/point-control-api" alt="Top lang" />
-  <img src="https://img.shields.io/github/stars/Lissone/point-control-api" alt="Stars repo" />
-  <img src="https://img.shields.io/github/forks/Lissone/point-control-api" alt="Forks repo" />
-  <img src="https://img.shields.io/github/issues-pr/Lissone/point-control-api" alt="Pull requests" >
-  <img src="https://img.shields.io/github/last-commit/Lissone/point-control-api" alt="Last commit" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/Lissone/point-control-api/issues">Report bug</a>
-  ·
-  <a href="https://github.com/Lissone/point-control-api/issues">Request feature</a>
-</p>
-
-<br />
-
 ## Description
 
 This project is the Back-end (Api) of a company point control application. To illustrate in a simple way, this api controls and stores all employee data, entry points, exit, pause, absences from work and all this being managed by employees of the company itself, who have specific and special credentials for this.
