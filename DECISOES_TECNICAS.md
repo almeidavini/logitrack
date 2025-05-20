@@ -150,6 +150,7 @@ A API utiliza **R2DBC com MySQL** para comunicação reativa com o banco de dado
 - Implementação de **paginação na rota `GET /events`** para evitar sobrecarga de memória e reduzir latência na recuperação de grandes volumes de eventos por pacote.
 - Adição de **circuit breakers** (ex: Resilience4j) para chamadas externas.
 - Introdução de **cache local ou distribuído** para chamadas à API externa [Nager.Date](https://date.nager.at), evitando requisições repetidas para a mesma data e melhorando a performance geral da criação de pacotes.
+- Integração com uma **fila de reprocessamento** (ex: Amazon SQS) para atualização assíncrona dos registros de pacotes quando não for possível obter o fato curioso (`fun_fact`) da [Dog API](https://dogapi.dog/), garantindo eventual consistência dos dados.
 ---
 
 ## 📌 Conclusão
