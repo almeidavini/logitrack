@@ -2,228 +2,19 @@
   LogiTrack - Api
 </h1>
 
-## Description
+## Descrição
 
-This project is the Back-end (Api) of a company point control application. To illustrate in a simple way, this api controls and stores all employee data, entry points, exit, pause, absences from work and all this being managed by employees of the company itself, who have specific and special credentials for this.
-
-Project developed as an activity of my bachelor's degree in information systems, with the main objective of having a very descriptive and extensive documentation, for anyone to understand the features and learn from it. The api framework was built on clean architecture and documented with Swagger.
-
-To facilitate the development of the project and better describe everything that was created, a flowchart of some of the project's features and relevant information at the time of its development was designed, using <a href="https://whimsical.com/pointcontrol-5dryUV3teiRwy1rPzH3ekK" target="_blank">Whimsical</a>.
-
-To access the other projects integrated to this one, access:
-
-- <a href="https://github.com/Lissone/point-control-admin-web" target="_blank">Front-end to admin users</a>
-- <a href="https://github.com/almeidavini/point-control" target="_blank">Front-end to employees</a>
-
-This project was done in partnership with:
-
-- <a href="https://github.com/MikaMorais" target="_blank">Moises Morais</a>
-- <a href="https://github.com/steniodr" target="_blank">Stenio Rapchan</a>
-- <a href="https://github.com/almeidavini" target="_blank">Vinicius Almeida</a>
-
-## Demonstrations
-
-Front-end to admin users
-
-https://user-images.githubusercontent.com/57052110/194934760-04bbc99d-4cce-464e-a93d-7f47beb80742.mp4
-
-Front-end to employees
-
-https://user-images.githubusercontent.com/57052110/200085812-502e5746-05b4-4497-82eb-796c923ff65b.mp4
-
-## Requirements
-
-- [Npm](https://www.npmjs.com/)
-- [Yarn](https://yarnpkg.com/)
-- [Nodejs](https://nodejs.org/en/)
-- [Redis](https://redis.io/)
-- [SqlServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
-
-## Technologies
-
-- Nodejs
-- Typescript
-- Express
-- TypeORM
-- IoRedis
-- Nodemailer
-- Swagger (Documentation)
-- Eslint
-  - Airbnb-config with another pessoal rules
-  - Import helpers plugin
-- Prettier
-- Commitizen
-
-## Usage
-
-You can clone it on your pc using the command:
-
-```bash
-git clone https://github.com/Lissone/pointControl-api.git
-cd pointControl-api
-```
-
-### Initial settings before running project
-
-Because we use external services, it is necessary to make some simple configurations before running the project.
-
-### Database configuration
-
-You must create the database before running an api (dbPointControl).
-
-```typescript
-// .\src\external\database\dbConfig.ts
-
-const connection = createConnection({
-  type: 'mssql',
-  host: process.env.DB_HOST,
-  port: 1433,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  entities: [**Entities**],
-  synchronize: true,
-  logging: false,
-  options: {
-    enableArithAbort: true
-  }
-})
-```
-
-Need create first global admin user:
-
-Default password: 123456
-
-```sql
-INSERT INTO [dbo].[user]
-(id, name, email, password, role, first_access, company_cnpj, created_at, updated_at)
-VALUES (
-  '08e5ad8d-5fa3-41a2-a732-b997336b4cf5',
-  'Global Admin',
-  'admin@admin.com',
-  '$2a$05$MG6XoOEDPjtXVesTW8P2S.UkNzii1ai7VEAvBnToDHZq03sSij2vi',
-  'global.admin',
-  1,
-  NULL,
-  '2001-12-11T22:30:00Z',
-  '2001-12-11T22:30:00Z'
-)
-```
-
-### Email configuration
-
-If you are using your gmail account to use the messaging system with Nodemailer, you should give access to <a href="https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PzIfR0P6cezk9W9qg5xrvKjdjnlQ-oSFiXuT4yVX_S5YpKKcf5I5vJdWtzw7oaWydt9nVFxvMUspZzNR38DCKgOHSEOw" target="_blank">your account</a> to less secure apps, even though they are secure.
-
-Need to add environment variables:
-
-```bash
-# .\.env
-
-# DEFAULT
-# APP
-APP_PORT=5000
-APP_NAME=point-control-api
-APP_VERSION=0.0.0
-
-# AUTH
-SECRET_KEY=super_scret # JWT secret key
-
-# REDIS
-REDIS_HOST=localhost
-REDIS_PORT=6379
-
-# DATABASE
-DB_USERNAME=sa
-DB_PASSWORD=123456
-DB_NAME=dbPointControl
-DB_HOST=localhost
-
-# NODEMAILER
-NODEMAILER_USER= # Email used for sending messages
-NODEMAILER_PASS= # Your email password
-```
-
-If you have <b>Docker</b>, and want to run the container, use the command:
-
-```bash
-# Build the project container
-docker-compose build
-# Up container
-docker-compose up
-```
-
-Install dependencies using:
-
-```bash
-yarn
-#or
-npm install
-```
-
-Run api:
-
-```bash
-yarn dev
-#or
-npm run dev
-```
-
-## Contributors
-
-Thanks goes to these wonderful people, who were part of the project from start to finish:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/MikaMorais" target="_blank">
-        <img src="https://github.com/MikaMorais.png" width="100px;" alt="Moises Morais photo"/><br>
-        <sub>
-          <b>Moises Morais</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/steniodr" target="_blank">
-        <img src="https://github.com/steniodr.png" width="100px;" alt="Stenio Rapchan photo"/><br>
-        <sub>
-          <b>Stenio Rapchan</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/almeidavini" target="_blank">
-        <img src="https://github.com/almeidavini.png" width="100px;" alt="Vinicius Almeida photo"/><br>
-        <sub>
-          <b>Vinicius Almeida</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<hr />
+Sistema desenvolvido como parte do processo seletivo **Inbound - Mercado Livre**, com foco em **performance**, **escalabilidade** e **resiliência**. A aplicação oferece uma API RESTful para gerenciar o ciclo de vida de pacotes e eventos de rastreamento em um sistema logístico de alta escala.
 
 
+## Pré-requisitos
 
+* Java Development Kit (JDK) 21 ou superior
+* Maven
+* Docker
+* Docker Compose (se desejar executar com Docker Compose)
 
-
-
-
-
-
-
-
-# LogiTrack API
-
-## Visão Geral
-
-LogiTrack API é uma aplicação backend desenvolvida utilizando Java 21, Spring Boot 3.4 e WebFlux para fornecer funcionalidades de rastreamento e gerenciamento de logística. A API utiliza um banco de dados MySQL para persistência dos dados e pode ser executada via Docker Compose.
-
-## Tecnologias Utilizadas
+## Tecnologias
 
 * **Java:** 21
 * **Spring Boot:** 3.4
@@ -232,17 +23,7 @@ LogiTrack API é uma aplicação backend desenvolvida utilizando Java 21, Spring
 * **Docker:** Para conteinerização da aplicação
 * **Docker Compose:** Para orquestração dos serviços Docker
 
-## Pré-requisitos
-
-Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
-
-* Java Development Kit (JDK) 21 ou superior
-* Maven
-* Docker
-* Docker Compose (se desejar executar com Docker Compose)
-* MySQL Server (opcional, se não usar o Docker Compose)
-
-## Execução com Docker Compose
+## Execução
 
 Para executar a aplicação utilizando Docker Compose (configurado em `app/local`):
 
