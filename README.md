@@ -282,7 +282,7 @@ Retorna todos os eventos associados a um pacote.
 
 ## 📌 Decisões Técnicas
 
-As decisões técnicas adotadas ao longo do desenvolvimento (como arquitetura, escolha de tecnologias e padrões de projeto) estão documentadas no arquivo [DECISOES_TECNICAS](./DECISOES_TECNICAS.md).
+As decisões técnicas adotadas ao longo do desenvolvimento (como arquitetura, escolha de tecnologias e padrões de projeto) estão documentadas no arquivo [DECISOES TECNICAS](./DECISOES_TECNICAS.md).
 
 
 ## 📝 Considerações Finais
