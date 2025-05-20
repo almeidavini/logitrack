@@ -9,10 +9,7 @@ Sistema desenvolvido como parte do processo seletivo **Inbound - Mercado Livre**
 
 ## Pré-requisitos
 
-* Java Development Kit (JDK) 21 ou superior
-* Maven
 * Docker
-* Docker Compose (se desejar executar com Docker Compose)
 
 ## Tecnologias
 
