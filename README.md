@@ -69,7 +69,7 @@ Registra um novo usuário e seu endereço.
 **Resposta:**
 ```json
 {
-  "id": "uuid",
+  "id": "94b5b8e0-3f51-425a-974b-0e875023fa0b",
   "name": "João",
   "email": "joao@gmail.com",
   "address": {
@@ -78,11 +78,11 @@ Registra um novo usuário e seu endereço.
     "state": "SP",
     "zip_code": "03591-020",
     "country": "BR",
-    "created_at": "...",
-    "updated_at": "..."
+    "created_at": "2025-05-18T18:37:43",
+    "updated_at": "2025-05-18T18:37:43"
   },
-  "created_at": "...",
-  "updated_at": "..."
+  "created_at": "2025-05-18T18:37:43",
+  "updated_at": "2025-05-18T18:37:43"
 }
 ```
 
@@ -125,8 +125,8 @@ Cria um novo pacote associado a dois usuários diferentes (remetente e destinat�
 ```json
 {
   "description": "Remedio",
-  "sender_id": "uuid1",
-  "recipient_id": "uuid2",
+  "sender_id": "64b5b8e0-3f51-425a-974b-0e875023fa0b",
+  "recipient_id": "54b5b8e0-3f51-425a-974b-0e875023fa0b",
   "estimated_delivery_date": "2025-09-07"
 }
 ```
@@ -134,24 +134,24 @@ Cria um novo pacote associado a dois usuários diferentes (remetente e destinat�
 **Resposta:**
 ```json
 {
-  "id": "uuid",
+  "id": "64b5b8e0-3f51-425a-974b-0e875023fa08",
   "description": "Remedio",
   "fun_fact": "Dogs see in colors of various shades of blue and yellow.",
   "status": "CREATED",
   "sender": {
-    "id": "uuid",
+    "id": "64b5b8e0-3f51-425a-974b-0e875023fa04",
     "name": "Pedro"
   },
   "recipient": {
-    "id": "uuid",
+    "id": "67b5b8e0-3f51-425a-974b-0e875023fa0b",
     "name": "Adriana"
   },
   "delivery": {
     "estimated_delivery_date": "2025-09-07",
     "is_holiday": true
   },
-  "created_at": "...",
-  "updated_at": "..."
+  "created_at": "2025-05-18T18:37:43",
+  "updated_at": "2025-05-18T18:37:43"
 }
 ```
 
@@ -171,14 +171,14 @@ Atualiza o status do pacote para `IN_TRANSIT` ou `DELIVERED`.
 **Resposta:**
 ```json
 {
-  "id": "uuid",
+  "id": "54b5b8e0-3f51-425a-974b-0e875023fa06",
   "description": "Livro infantil",
   "sender": "Adriana",
   "recipient": "Adriana",
   "status": "DELIVERED",
-  "created_at": "...",
-  "updated_at": "...",
-  "delivered_at": "..."
+  "created_at": "2025-05-18T18:37:43",
+  "updated_at": "2025-05-18T18:37:43",
+  "delivered_at": "2025-05-18T18:37:43"
 }
 ```
 
@@ -191,9 +191,9 @@ Cancela um pacote que ainda esteja com status `CREATED`.
 **Resposta:**
 ```json
 {
-  "id": "uuid",
+  "id": "87b5b8e0-3f51-425a-974b-0e875023fa0b",
   "status": "CANCELLED",
-  "data_atualizacao": "..."
+  "data_atualizacao": "2025-05-18T18:37:43"
 }
 ```
 
@@ -205,18 +205,18 @@ Se o header `events: true` for enviado, os eventos também serão retornados.
 **Resposta:**
 ```json
 {
-  "id": "uuid",
+  "id": "94b5b8e0-3f51-425a-974b-0e875023f788",
   "description": "Livro infantil",
   "sender": "Adriana",
   "recipient": "Pedro",
   "status": "IN_TRANSIT",
-  "created_at": "...",
-  "updated_at": "...",
+  "created_at": "2025-05-18T18:37:43",
+  "updated_at": "2025-05-18T18:37:43",
   "events": [
     {
       "location": "Centro de distribuição",
       "description": "pacote despachado",
-      "created_at": "..."
+      "created_at": "2025-05-18T18:37:43"
     }
   ]
 }
@@ -235,7 +235,7 @@ Cria um novo evento de rastreamento para um pacote existente.
 **Requisição:**
 ```json
 {
-  "parcel_id": "uuid",
+  "parcel_id": "89b5b8e0-3f51-425a-974b-0e875023fa0b",
   "location": "Centro de distribuição",
   "description": "pacote despachado"
 }
@@ -244,11 +244,11 @@ Cria um novo evento de rastreamento para um pacote existente.
 **Resposta:**
 ```json
 {
-  "id": "uuid",
-  "parcel_id": "uuid",
+  "id": "64b5b8e0-3f51-425a-974b-0e875023fa34f",
+  "parcel_id": "0f7g0-3f51-425a-974b-0e875023fa0b",
   "location": "Centro de distribuição",
   "description": "pacote despachado",
-  "created_at": "..."
+  "created_at": "2025-05-18T18:37:43"
 }
 ```
 
@@ -263,18 +263,18 @@ Retorna todos os eventos associados a um pacote.
 {
   "events": [
     {
-      "id": "uuid",
-      "parcel_id": "uuid",
+      "id": "56h5b8e0-3f51-425a-974b-0e875023fa0b",
+      "parcel_id": "64b5b8e0-3f51-425a-974b-0e875023fa0b",
       "location": "Centro de distribuição",
       "description": "pacote despachado",
-      "created_at": "..."
+      "created_at": "2025-05-18T18:37:43"
     },
     {
-      "id": "uuid",
-      "parcel_id": "uuid",
+      "id": "64b5b8e0-3f51-425a-974b-0e875023fa0b",
+      "parcel_id": "64b5b8e0-3f51-425a-974b-0e875023fa0b",
       "location": "Centro de distribuição",
       "description": "pacote despachado",
-      "created_at": "..."
+      "created_at": "2025-05-18T18:37:43"
     }
   ]
 }
