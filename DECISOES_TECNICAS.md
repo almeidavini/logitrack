@@ -112,6 +112,7 @@ As tabelas foram projetadas para suportar milhões de registros com:
 - Separação entre `users` e `addresses` com relacionamento 1:1, promovendo a **normalização** e evitando redundância de dados.
 - A tabela `events` foi desenhada para acumular grandes volumes de dados relacionados a pacotes, com índice composto em `(parcel_id, created_at)` que favorece ordenação cronológica em buscas.
 
+
 ### Estratégia de Expurgo
 O sistema está preparado para suportar **expurgo de dados** através de políticas externas:
 - A tabela de `events` pode ser particionada por data em uma futura evolução.
@@ -129,8 +130,6 @@ O sistema está preparado para suportar **expurgo de dados** através de políti
 
 ## 🔮 Futuras Melhorias Planejadas
 
-- Suporte a **observabilidade** com log estruturado, tracing distribuído (ex: OpenTelemetry).
-- Adição de **circuit breakers** (ex: Resilience4j) para chamadas externas.
 
 ---
 
