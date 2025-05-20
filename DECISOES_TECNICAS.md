@@ -120,6 +120,24 @@ O sistema está preparado para suportar **expurgo de dados** através de políti
 
 ---
 
+## 🔌 Gestão de Conexões do MySQL
+
+A API utiliza **R2DBC com MySQL** para comunicação reativa com o banco de dados, o que exige uma abordagem adequada de gerenciamento de conexões assíncronas.
+
+- ✅ **Pool de conexões ativado**: A configuração no `application.yml` ativa explicitamente o pool com `pool=true` na URL e define os parâmetros:
+  - `initial-size: 10`: conexões criadas ao iniciar a aplicação.
+  - `max-size: 20`: limite máximo de conexões simultâneas.
+  - `max-idle-time: 30m`: tempo máximo que uma conexão pode ficar ociosa antes de ser descartada.
+
+- ✅ **Driver compatível**: Utiliza o driver `io.asyncer:r2dbc-mysql`, que suporta nativamente pooling baseado em `r2dbc-pool`.
+
+- ⚙️ **Configuração baseada em boas práticas**: A parametrização foi pensada para balancear performance e uso de recursos sob cenários de carga moderada a alta.
+
+- 🔍 **Monitoramento recomendável**: A aplicação pode ser facilmente integrada ao `Spring Boot Actuator` com `Micrometer` para observabilidade do pool (conexões ativas, disponíveis etc.).
+
+- ♻️ **Tolerância a falhas**: O driver possui mecanismos internos para reconexão em falhas leves. Para resiliência extra, futuras melhorias podem incluir políticas de retry com Resilience4j.
+
+
 ## ⚙️ Processamento Assíncrono
 
 - A API é reativa de ponta a ponta, o que elimina a necessidade de pools tradicionais como `ExecutorService` ou `ForkJoinPool`.
