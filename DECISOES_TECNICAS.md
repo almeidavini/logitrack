@@ -129,6 +129,7 @@ O sistema está preparado para suportar **expurgo de dados** através de políti
 ---
 
 ## 🔮 Futuras Melhorias Planejadas
+- Implementação de **paginação na rota `GET /events`** para evitar sobrecarga de memória e reduzir latência na recuperação de grandes volumes de eventos por pacote.
 
 
 ---
