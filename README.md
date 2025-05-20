@@ -8,6 +8,12 @@ LogiTrack é uma API RESTful desenvolvida como parte do processo seletivo **Inbo
 
 ---
 
+## 📌 Decisões Técnicas
+
+As decisões técnicas adotadas ao longo do desenvolvimento (como arquitetura, escolha de tecnologias e padrões de projeto) estão documentadas no arquivo [DECISOES TECNICAS](./DECISOES_TECNICAS.md).
+
+---
+
 ## 🚀 Pré-requisitos
 
 - Docker
@@ -279,11 +285,6 @@ Retorna todos os eventos associados a um pacote.
   ]
 }
 ```
-
-## 📌 Decisões Técnicas
-
-As decisões técnicas adotadas ao longo do desenvolvimento (como arquitetura, escolha de tecnologias e padrões de projeto) estão documentadas no arquivo [DECISOES TECNICAS](./DECISOES_TECNICAS.md).
-
 
 ## 📝 Considerações Finais
 
