@@ -130,8 +130,8 @@ O sistema está preparado para suportar **expurgo de dados** através de políti
 
 ## 🔮 Futuras Melhorias Planejadas
 - Implementação de **paginação na rota `GET /events`** para evitar sobrecarga de memória e reduzir latência na recuperação de grandes volumes de eventos por pacote.
-
-
+- Adição de **circuit breakers** (ex: Resilience4j) para chamadas externas.
+- Introdução de **cache local ou distribuído** para chamadas à API externa [Nager.Date](https://date.nager.at), evitando requisições repetidas para a mesma data e melhorando a performance geral da criação de pacotes.
 ---
 
 ## 📌 Conclusão
