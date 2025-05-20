@@ -280,6 +280,11 @@ Retorna todos os eventos associados a um pacote.
 }
 ```
 
+## 📌 Decisões Técnicas
+
+As decisões técnicas adotadas ao longo do desenvolvimento (como arquitetura, escolha de tecnologias e padrões de projeto) estão documentadas no arquivo [DECISOES_TECNICAS](./DECISOES_TECNICAS.md).
+
+
 ## 📝 Considerações Finais
 
 Este projeto demonstra o uso de arquitetura reativa com Spring WebFlux, integrações com APIs externas e uso de práticas modernas de desenvolvimento com Java 21. Idealizado para cenários de alta demanda e throughput.
