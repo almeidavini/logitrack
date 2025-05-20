@@ -33,3 +33,50 @@ Para executar a aplicação utilizando Docker Compose (configurado em `app/local
     docker-compose up -d --build
     ```
     A API estará disponível em `http://localhost:8080`. O banco de dados MySQL estará acessível na porta padrão (configurada no `docker-compose.yml`).
+	
+## Utilização
+
+Após execução, a API estará disponível em:  
+`http://localhost:8080`
+
+### 1. Criar um novo usuário
+
+**POST** `/logitrack/api/users`  
+Registra um novo usuário, verificando a integridade dos dados fornecidos e se o e-mail fornecido já foi cadastrado anteriormente.
+
+#### Requisição:
+```json
+{
+	"name": "João",
+	"email": "joao@gmail.com",
+	"address": {
+		"street": "Rua Da Paz",
+		"number": "15",
+		"city": "São Paulo",
+		"state": "SP",
+		"zip_code": "03591-020",
+		"country": "BR"
+	}
+}
+```
+
+
+#### Resposta:
+```json
+{
+	"id": "e89d88ce-2b16-4310-96e5-df01a72fb28e",
+	"name": "João",
+	"email": "joao@gmail.com",
+	"address": {
+		"street": "Rua Da Paz",
+		"city": "São Paulo",
+		"state": "SP",
+		"zip_code": "03591-020",
+		"country": "BR",
+		"created_at": "2025-05-20T09:43:48",
+		"updated_at": "2025-05-20T09:43:48"
+	},
+	"created_at": "2025-05-20T09:43:48",
+	"updated_at": "2025-05-20T09:43:48"
+}
+```
